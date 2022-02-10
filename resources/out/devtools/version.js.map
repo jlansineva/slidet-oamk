@@ -1,0 +1,1 @@
+{"version":3,"file":"\/Users\/jukkalansineva\/projects\/slidet-oamk\/resources\/out\/devtools\/version.js","sources":["version.cljs"],"lineCount":9,"mappings":";AAAA;;AAGA,AAAKA,mCAAgB;AAErB,uCAAA,vCAAMC;AAAN,AACED","names":["devtools.version\/current-version","devtools.version\/get-current-version"]}

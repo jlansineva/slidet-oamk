@@ -1,0 +1,2 @@
+(ns slidet-oamk.util)
+

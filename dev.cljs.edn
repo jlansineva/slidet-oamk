@@ -1,0 +1,8 @@
+^{:watch-dirs ["src/cljs" "src/cljc"]
+  :css-dirs ["resources/public/css"]
+  :open-url false
+  :ring-server-options {:port 3450}}
+{:main slidet-oamk.main
+ :output-to "resources/public/js/slidet.js"
+ :output-dir "resources/public/js/out"}
+

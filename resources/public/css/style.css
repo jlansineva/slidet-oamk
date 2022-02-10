@@ -1,0 +1,41 @@
+div {
+    font-family: arial;
+    font-size: 48px;
+}
+
+.menu {
+    position:fixed;
+    top:0;
+    right:0;
+
+    font-family: courier new;
+       font-size: 24px;
+}
+.menu-open {
+    display:flex;
+}
+
+.debug { 
+    position:fixed;
+    bottom: 0;
+}
+
+.debug > div {
+    font-family: courier new;
+       font-size: 24px;
+}
+
+.sections {
+    display:flex;
+    flex-orientation: row;
+}
+
+.section {
+background-color:green;
+width:50%;
+}
+
+.slide-container {
+    padding:5%;
+    
+}
