@@ -1,3 +1,5 @@
+html,body { height: 100%; margin: 0px; padding: 0px; }
+
 div {
     font-family: arial;
     font-size: 48px;
@@ -9,7 +11,7 @@ div {
     right:0;
 
     font-family: courier new;
-       font-size: 24px;
+    font-size: 24px;
 }
 .menu-open {
     display:flex;
@@ -22,7 +24,7 @@ div {
 
 .debug > div {
     font-family: courier new;
-       font-size: 24px;
+    font-size: 24px;
 }
 
 .sections {
@@ -31,11 +33,20 @@ div {
 }
 
 .section {
-background-color:green;
-width:50%;
+    background-color:green;
+    width:50%;
 }
+
+#app, .application { height: 100%; }
+
+.application { display: flex; 
+               flex-orientation: column; }
 
 .slide-container {
     padding:5%;
-    
+    flex-grow: 1;
+    overflow:hidden;
+    line-height:1.75;
+    background-size:cover;
+    background-repeat:no-repeat;
 }

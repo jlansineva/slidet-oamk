@@ -184,6 +184,7 @@ goog.addDependency("../ajax/xml_http_request.js", ['ajax.xml_http_request'], ['g
 goog.addDependency("../ajax/xhrio.js", ['ajax.xhrio'], ['goog.net.XhrManager', 'goog.net.XhrIo', 'goog.json', 'goog.Uri', 'cljs.core', 'goog.net.EventType', 'ajax.protocols', 'goog.events', 'goog.net.ErrorCode']);
 goog.addDependency("../ajax/core.js", ['ajax.core'], ['ajax.formats', 'ajax.xml_http_request', 'ajax.transit', 'ajax.json', 'ajax.url', 'ajax.interceptors', 'cljs.core', 'ajax.ring', 'ajax.easy', 'ajax.simple', 'ajax.protocols', 'ajax.util', 'clojure.string', 'ajax.xhrio']);
 goog.addDependency("../reagent/debug.js", ['reagent.debug'], ['cljs.core']);
+goog.addDependency("../cljs/spec/gen/alpha.js", ['cljs.spec.gen.alpha'], ['goog.Uri', 'cljs.core']);
 goog.addDependency("../cljsjs/react/development/react.inc.js", ['react', 'cljsjs.react'], [], {'foreign-lib': true});
 goog.addDependency("../cljsjs/react-dom/development/react-dom.inc.js", ['react_dom', 'cljsjs.react.dom'], ['react'], {'foreign-lib': true});
 goog.addDependency("events/keycodes.js", ['goog.events.KeyCodes'], ['goog.userAgent']);
@@ -198,4 +199,5 @@ goog.addDependency("../reagent/impl/input.js", ['reagent.impl.input'], ['reagent
 goog.addDependency("../reagent/impl/template.js", ['reagent.impl.template'], ['reagent.impl.util', 'reagent.impl.protocols', 'reagent.ratom', 'react', 'cljs.core', 'goog.object', 'reagent.impl.batching', 'reagent.impl.component', 'reagent.impl.input', 'reagent.debug', 'clojure.string']);
 goog.addDependency("../reagent/core.js", ['reagent.core'], ['reagent.impl.util', 'reagent.impl.protocols', 'reagent.ratom', 'react', 'cljs.core', 'reagent.impl.template', 'reagent.impl.batching', 'reagent.impl.component', 'reagent.debug']);
 goog.addDependency("../reagent/dom.js", ['reagent.dom'], ['reagent.impl.util', 'reagent.impl.protocols', 'reagent.ratom', 'cljs.core', 'reagent.impl.template', 'reagent.impl.batching', 'reagent.impl.input', 'react_dom']);
-goog.addDependency("../slidet_oamk/main.js", ['slidet_oamk.main'], ['reagent.core', 'reagent.dom', 'ajax.core', 'goog.events.KeyCodes', 'goog.events', 'goog.events.EventType', 'goog.events.KeyHandler', 'cljs.core']);
+goog.addDependency("../cljs/spec/alpha.js", ['cljs.spec.alpha'], ['cljs.core', 'goog.object', 'clojure.string', 'clojure.walk', 'cljs.spec.gen.alpha']);
+goog.addDependency("../slidet_oamk/main.js", ['slidet_oamk.main'], ['reagent.core', 'reagent.dom', 'ajax.core', 'cljs.spec.alpha', 'goog.events.KeyCodes', 'goog.events', 'goog.events.EventType', 'goog.events.KeyHandler', 'cljs.core']);
