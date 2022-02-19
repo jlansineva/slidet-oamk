@@ -1,32 +1,28 @@
 # slidet-oamk
 
-FIXME: description
+Slides for OAMK presentation
 
 ## Installation
 
-Download from http://example.com/FIXME.
+Download Leiningen from https://leiningen.org/
 
 ## Usage
 
-FIXME: explanation
+Run by executing 
 
-    $ java -jar slidet-oamk-0.1.0-standalone.jar [args]
+$ lein repl 
 
-## Options
+Run `(-main)` to start the backend server
 
-FIXME: listing of options this app accepts.
+Run 
 
-## Examples
+`(require '[figwheel.main.api :as fig])`
 
-...
+`(fig/start "dev")`
 
-### Bugs
+to start the frontend server
 
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
+Navigate to http://localhost:3005
 
 ## License
 

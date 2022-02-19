@@ -27,7 +27,11 @@
 (def introduction-page
   [:div "Welcome to the introduction page"])
 
-(s/def ::element-spec (s/cat :options (s/? map?) :content (s/* vector?)))
+(s/def ::element-spec (s/cat :options (s/? map?) :content (s/* (constantly true))))
+
+(defn match-to-spec 
+  [content]
+  (s/conform ::element-spec content))
 
 (defmulti slide-element (fn [params]
                           (first params)))
@@ -85,23 +89,37 @@
      :reagent-render expanding-list}))
 
 (defmethod slide-element :heading
-  [[_ & text]]
+  [[_ text]]
 ;^{:key (gensym "header-element-")}
-  [:h1 (first text)])
+  [:h1 text])
+
+(defmethod slide-element :subheading
+  [[_ text]]
+  [:h2 text])
+
+(defmethod slide-element :text
+  [[_ text]]
+  [:div text])
 
 (defmethod slide-element :image
-  [[_ image text & more]]
-  [:div.image 
-   [:img {:src (str "/img/" image)}]
-   (when text [:div.image-alt text])])
+  [[_ & content]]
+  (let [{:keys [options content]} (match-to-spec content)
+        [image text] content] 
+    [:div.image
+     (cond-> {}
+       (:centered? options) (assoc :class #{"centered"}))
+     [:img {:src (str "/img/" image)}]
+     (when text [:div.image-alt text])]))
 
-(defmethod slide-element :section
+(defmethod slide-element :sections
   [[_ & sections]]
   [:div.sections 
    (for [s sections]
-     ^{:key (gensym "section-element-")}
+     ^{:key (gensym "section-")}
      [:div.section 
-      [slide-element s]])])
+      (for [e s] 
+        ^{:key (gensym "section-element-")}
+        [slide-element e])])])
 
 (comment (slide-element [:list 
                          "Welcome" 
@@ -125,24 +143,35 @@
   (r/atom
     {}))
 
-(defonce slide-state (r/atom {:current-slide :main-page :history []}))
+(defonce slide-state (r/atom {:current-index 0 :history []}))
 
 (defn change-slide 
-  [{:keys [current-slide] :as app} path]
-  (let [nxt (get-in @slides [current-slide path])]
+  [{:keys [current-index slide-order] :as app} condition]
+  (let [nxt (cond 
+              (and 
+                (< current-index (dec (count slide-order)))
+                (= condition
+                  :next)) (inc current-index)
+              
+              (and
+                (> current-index 0)
+                (= condition :prev)) (dec current-index)
+              
+              :else
+              false)]
     (if nxt
       (-> app
-        (update :history conj current-slide)
-        (assoc :current-slide nxt))
+        (update :history conj current-index)
+        (assoc :current-index nxt))
       app)))
 
 (defn next-slide
   [app]
-  (change-slide app :next-slide))
+  (change-slide app :next))
 
 (defn previous-slide
   [app]
-  (change-slide app :previous-slide))
+  (change-slide app :prev))
 
 (defn not-found 
   []
@@ -153,7 +182,8 @@
 (defn presenter 
   [app slides]
   (let [dereffed-slides @slides
-        current-slide (:current-slide @app)
+        app @app
+        current-slide (get (:slide-order app) (:current-index app))
         content (get-in dereffed-slides [current-slide :content])
         options (get-in dereffed-slides [current-slide :options])]
     (if (some? content)
@@ -163,7 +193,8 @@
 (defn update-slides
   [ss]
   (reset! slides (-> ss :slides :slides))
-  (swap! slide-state assoc :current-slide (-> ss :slides :first-slide)
+  (swap! slide-state 
+    assoc
     :slide-order (-> ss :slides :slide-order)
     :slide-index 0))
 
@@ -185,11 +216,13 @@
         (when (:menu-open? @local-state)
           [:div.menu-open 
            [:button {:on-click #(swap! local-state update :show-debug? not)} "Debug?"]
-           [:button {:on-click #(ajax/POST "http://localhost:3005/api/slide" {:params {:slide (:current-slide @slide-state)}})} "Refetch"]])]
+           [:button {:on-click #(ajax/POST "http://localhost:3005/api/slides" 
+                                  {:handler update-slides
+                                   :error-handler println})} "Refetch"]])]
        (when (:show-debug? @local-state) 
          [:div.debug 
-          [:div (pr-str (get @slides (:current-slide @slide-state)))]
-          [:div (pr-str @slides)]
+          [:div (pr-str (get @slides (->> @slide-state :current-index (get (:slide-order @slide-state)))))]
+          #_[:div (pr-str @slides)]
           [:div
            (str (:history @slide-state))]])
        [presenter slide-state slides]])))

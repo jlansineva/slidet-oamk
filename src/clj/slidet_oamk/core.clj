@@ -7,157 +7,51 @@
             [reitit.ring.middleware.parameters :as parameters]
             [muuntaja.core :as m]
             [clojure.java.io :as io]
-            [org.httpkit.server :as http])
+            [org.httpkit.server :as http]
+            [slidet-oamk.slides :as slides])
   (:gen-class))
 
 (defn with-next-prev 
   [n p m]
   (assoc m :next-slide n :previous-slide p))
 
-(def introduction
-  (with-next-prev 
-    :who-am-i
-     nil
-    {:content [[:heading "Functional Programmming is Awesome"] 
-               [:list 
-                "Some background" 
-                "Some practice" 
-                "Some tips"]]}))
-
-(def who-am-i
-  (with-next-prev
-    :i-started
-    :introduction
-    {:content [[:heading "Who am I?"]
-               [:list "Jukka Länsineva"
-                "Been at Solita for ~3 years"
-                "In the industry for some 6+ years now"
-                "Bachelor of Science from Oulu University"]
-               [:expanding-list "Full-stack Clojurist"
-                "Also some Java, JS, what have you..."
-                "...but mostly Clojure"]]}))
-
-(def i-started
-  (with-next-prev
-    :so-what-is-programming
-    :who-am-i
-    {:options {:background {:image "ilikecats.jpeg"}}
-     :content [[:heading "Games are fun"]
-               [:list "Like many, got into programming by writing games"
-                "...so like many, got started with imperative programming"
-                "C / C++ / C# and the like"
-                "Got into FP stuff via web stuff"]]}))
-
-(def so-what-is-programming
-  (with-next-prev
-    :turing-machines
-    :i-started
-    {:content [[:heading "So what's programming?"]
-               [:list "Computation to achieve some result"
-                "Two ways about it"
-                "Imperative & Declarative"
-                "OOP falls into imperative, FP into declarative"
-                "Based on models of Turing machines and Lambda Calculus respectively"]]}))
-
-(def turing-machines
-  (with-next-prev 
-    :lambda-calculus
-    :so-what-is-programming
-    {:content [[:heading "Turing machines?"]
-               [:list 
-                "Model of computation that operates on a state"
-                "The grandfather of imperative systems"
-                "Can be used to model a CPU, languages, algorithms... "
-                "Turing completeness in programming languages means the language can simulate a Turing machine"]]}))
-
-(def lambda-calculus
-  (with-next-prev 
-    :you-dont-really-need-all-this
-    :turing-machines
-    {:content [[:heading "Lambda calculus"]
-               [:expanding-list 
-                "A notation system for computation made by Alonzo Church"
-                "It has three things in it!"
-                "Symbols, that present values"
-                "Abstractions, that present function definitions"
-                "Applications, that present ... well, applying a function to an argument"
-                "And it can do EVERYTHING"
-                "...it also equivalent with Turing machines"
-                "So it does everything"]]}))
-
-(def you-dont-really-need-all-this
-  (with-next-prev
-    :what-is-FP
-    :lambda-calculus
-    {:content [[:heading "It's fine!"]
-               [:list "You don't really need to do this stuff in your daily life!"
-                "It's good to know these things are based on concrete models"
-                "The takeaway is that these models are equivalent"]]}))
-
-(def what-is-FP
-  (with-next-prev 
-    :difference-between-FP-and-OOP
-    :you-dont-really-need-all-this
-    {:content [[:heading "So what is FP?"] 
-               [:expanding-list 
-                "FP is basically implementation of Lambda Calculus, just with more stuff defined" 
-                "...but all programming languages have functions?" 
-                "In FP it's not functions as in programming, but functions as in maths"
-                "So what does it mean?"]]}))
-
-(def difference-between-FP-and-OOP
-  (with-next-prev 
-    :difference-between-FP-and-OOP
-    :what-is-FP
-    {:content [[:heading ""]
-               [:section
-                [:expanding-list
-                 "Functional programming"
-                 "The what"
-                 "I want a Mexicana"
-                 "Data goes through a series of transformative operations"
-                 "dough -> add-pepperoni -> add-jalapenos ... -> pizza"
-                 "... we still have the dough"]
-                [:expanding-list
-                 "Imperative programming"
-                 "The how"
-                 "I want a pizza, put on dough pepperoni, jalapenos, pineapple and mexicana sauce"
-                 "Data is operated on by code"
-                 "dough <- add-pepperoni <- add-jalapenos ... = pizza"
-                 "dough becomes a pizza"]]]}))
-
-(def difference-between-FP-and-OOP-2
-  (with-next-prev
-    nil
-    :difference-between-FP-and-OOP
-    {:content [[:heading "2"]
-               [:list "But wait there's more!"]]}))
-
-(def what-do-I-actually-do?
-  {:content [[:heading "So what do I actually do?"]
-             [:expanding-list "I do Clojure"
-              "In Solita, our FP language of choice"
-              "You might've actually seen it on our career pages!"
-              "I'm in a full-stack Clojure project called Harja"]]})
 
 (def db 
   {:first-slide :introduction
    :slide-order [:introduction :who-am-i :i-started :so-what-is-programming :turing-machines 
                  :lambda-calculus :you-dont-really-need-all-this :what-is-FP 
-                 :difference-between-FP-and-OOP :difference-between-FP-and-OOP-2
-                 :what-do-I-actually-do?]
-   :slides {:introduction introduction
-            :who-am-i who-am-i
-            :i-started i-started
-            :so-what-is-programming so-what-is-programming
-            :turing-machines turing-machines            
-            :lambda-calculus lambda-calculus
-            :you-dont-really-need-all-this you-dont-really-need-all-this
-            :what-is-FP what-is-FP
-            :difference-between-FP-and-OOP difference-between-FP-and-OOP
-            :difference-between-FP-and-OOP-2 difference-between-FP-and-OOP-2
-            
-            :what-do-I-actually-do? what-do-I-actually-do?}})
+                 :difference-between-FP-and-OOP :in-the-end-we-have-pizza 
+                 :key-functional-concepts
+                 :difference-between-FP-and-OOP-2 :benefits-of-both                 
+                 :what-do-I-actually-do? :what-is-clojure :lisp-cycles
+                 :full-stack-clojure :in-fact-this-is-clojure
+                 :repl-rocks
+                 :use-functional-patterns-elsewhere
+                 :get-into-clojure :who-uses-clojure
+                 :thanks]
+   :slides {:introduction slides/introduction
+            :who-am-i slides/who-am-i
+            :i-started slides/i-started
+            :so-what-is-programming slides/so-what-is-programming
+            :turing-machines slides/turing-machines            
+            :lambda-calculus slides/lambda-calculus
+            :you-dont-really-need-all-this slides/you-dont-really-need-all-this
+            :what-is-FP slides/what-is-FP
+            :key-functional-concepts slides/key-functional-concepts
+            :difference-between-FP-and-OOP slides/difference-between-FP-and-OOP
+            :in-the-end-we-have-pizza slides/in-the-end-we-have-pizza
+            :difference-between-FP-and-OOP-2 slides/difference-between-FP-and-OOP-2
+            :benefits-of-both slides/benefits-of-both
+            :what-do-I-actually-do? slides/what-do-I-actually-do?
+            :what-is-clojure slides/what-is-clojure
+            :lisp-cycles slides/lisp-cycles
+            :full-stack-clojure slides/full-stack-clojure
+            :in-fact-this-is-clojure slides/in-fact-this-is-clojure
+            :repl-rocks slides/repl-rocks
+            :who-uses-clojure slides/who-uses-clojure
+            :use-functional-patterns-elsewhere slides/use-functional-patterns-elsewhere
+            :get-into-clojure slides/get-into-clojure
+            :thanks slides/thanks}})
 
 (defn wrap-logger
   [handler]
