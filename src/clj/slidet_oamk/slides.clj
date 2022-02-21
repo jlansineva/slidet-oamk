@@ -65,7 +65,10 @@
               "FP is basically implementation of Lambda Calculus, just with more stuff defined" 
               "...but all programming languages have functions?" 
               "In FP it's not functions as in programming, but functions as in maths"
-              "...uhh"]]})
+              "...uhh"
+	      "Historically popular in Academia, but also has Industry uses"
+	      "Lisp, Haskell, Erlang, OCaml"
+	      "e.g. financial sector likes Haskell or other FP"]]})
 
 (def key-functional-concepts
   {:content [[:heading "Key functional concepts"]
@@ -95,7 +98,8 @@
 
 (def in-the-end-we-have-pizza
   {:content [[:heading "In the end we have a pizza"]
-             [:subheading "Just with slightly different approaches"]]})
+             [:subheading "Just with slightly different approaches"]
+	     [:image "pizzagraph.jpg"]})
 
 (def difference-between-FP-and-OOP-2
   {:content [[:heading "More into nitty gritty"]
@@ -123,7 +127,15 @@
               "So, in theory, less bugs"
               "Mutations tend to be more performant"
               "Immutability is more safe, but can be less performant"
-              "Mutations tend to cause bugs from side-effects"]]})
+              "Mutations tend to cause bugs from side-effects"
+	      "Computers ARE closer to Turing Machines in operation"]]})
+
+(def multi-paradigms
+  {:content [[:heading "FP creeping in..."]
+  	    [:subheading "Modern multiparadigm languages"]
+	    [:text "Scala, Kotlin, Rust, ..."]
+	    [:subheading "Inspiration in many modern languages"]
+	    [:text "React, lambdas in Java, ..."]}
 
 (def what-do-I-actually-do?
   {:content [[:heading "So what do I actually do?"]
