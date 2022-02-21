@@ -58,10 +58,27 @@
 	 (map add-jalapeno))
 	 more-doughs))
 
-(defn create-pizza-pipeline
-      [ingredients]
-   (map #(defn (symbol (str "add-" (name %))) [pizza]
-   	(update pizza :ingredients conj %) ingredients))
+
+
+
+(defmacro create-pizza-pipeline
+  [pizza-type ingredients]
+  (let [body (mapv 
+               (fn [ingredient] 
+                 `(def ~(symbol (str "add-" (name ingredient))) 
+                    (fn [~'pizza]
+   	              (update ~'pizza :ingredients conj ~ingredient)))) 
+               ingredients)]
+    `(do 
+       ~@body
+       (defn ~(symbol (str "bake-" (name pizza-type))) 
+         []
+         (-> pizza-dough 
+           ~@(mapv (fn [p]
+                     (symbol (str "add-" (name p))))
+               ingredients))))))
+
+(comment (create-pizza-pipeline :opera-special [:tuna :salami]))
 
 (def players-in-game {:counter-terrorists {:niko :alive
      :aleksib :dead
@@ -79,7 +96,9 @@
       	  (action-if-defused defused-by)
 	  players))
 
-(comment (def action-if-defused (partial (fn [players defuser] (assoc-in players [:counter-terrorists defuser] :dead)))))
+(comment (def action-if-defused 
+           (partial (fn [players defuser] 
+                      (assoc-in players [:counter-terrorists defuser] :dead)) players-in-game)))
 
 (comment (bomb-being-defused action-if-defused players-in-game nil))
 

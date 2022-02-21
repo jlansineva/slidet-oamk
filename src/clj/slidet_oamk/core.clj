@@ -19,13 +19,14 @@
 (def db 
   {:first-slide :introduction
    :slide-order [:introduction :who-am-i :i-started :so-what-is-programming :turing-machines 
-                 :lambda-calculus :you-dont-really-need-all-this :what-is-FP 
-                 :difference-between-FP-and-OOP :in-the-end-we-have-pizza 
-                 :key-functional-concepts
-                 :difference-between-FP-and-OOP-2 :benefits-of-both                 
+                 :lambda-calculus :lambda-examples :lambda-examples-2 :you-dont-really-need-all-this  
+                 :what-is-FP :difference-between-FP-and-OOP :in-the-end-we-have-pizza 
+                 :in-the-end-we-have-pizza-2 :key-functional-concepts 
+                 :difference-between-FP-and-OOP-2 :benefits-of-both :multi-paradigms
                  :what-do-I-actually-do? :what-is-clojure :lisp-cycles
-                 :full-stack-clojure :in-fact-this-is-clojure
-                 :repl-rocks
+                 :full-stack-clojure :what-does-clojure-look-like? :in-fact-this-is-clojure 
+                 :repl-rocks :how-would-we-write-web-in-clojure? 
+                 :why-clojure?
                  :use-functional-patterns-elsewhere
                  :get-into-clojure :who-uses-clojure
                  :thanks]
@@ -35,19 +36,26 @@
             :so-what-is-programming slides/so-what-is-programming
             :turing-machines slides/turing-machines            
             :lambda-calculus slides/lambda-calculus
+            :lambda-examples slides/lambda-examples
+            :lambda-examples-2 slides/lambda-examples-2
             :you-dont-really-need-all-this slides/you-dont-really-need-all-this
             :what-is-FP slides/what-is-FP
             :key-functional-concepts slides/key-functional-concepts
             :difference-between-FP-and-OOP slides/difference-between-FP-and-OOP
             :in-the-end-we-have-pizza slides/in-the-end-we-have-pizza
+            :in-the-end-we-have-pizza-2 slides/in-the-end-we-have-pizza-2
             :difference-between-FP-and-OOP-2 slides/difference-between-FP-and-OOP-2
             :benefits-of-both slides/benefits-of-both
+            :multi-paradigms slides/multi-paradigms
             :what-do-I-actually-do? slides/what-do-I-actually-do?
             :what-is-clojure slides/what-is-clojure
             :lisp-cycles slides/lisp-cycles
             :full-stack-clojure slides/full-stack-clojure
             :in-fact-this-is-clojure slides/in-fact-this-is-clojure
+            :what-does-clojure-look-like? slides/what-does-clojure-look-like?
             :repl-rocks slides/repl-rocks
+            :how-would-we-write-web-in-clojure? slides/how-would-we-write-web-in-clojure?
+            :why-clojure? slides/why-clojure?
             :who-uses-clojure slides/who-uses-clojure
             :use-functional-patterns-elsewhere slides/use-functional-patterns-elsewhere
             :get-into-clojure slides/get-into-clojure

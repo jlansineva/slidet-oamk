@@ -15,10 +15,11 @@
               "Bachelor of Science from Oulu University"]
              [:expanding-list "Full-stack Clojurist"
               "Also some Java, JS, what have you..."
-              "...but mostly Clojure"]]})
+              "...but mostly Clojure"
+              "I also do BJJ & Judo, video & board games, drony & bleepy music, anything to keep me from my Master's"]]})
 
 (def i-started
-  {:options {:background {:image "ilikecats.jpeg"}}
+  {:options {} #_{:background {:image "ilikecats.jpeg"}}
    :content [[:heading "Games are fun"]
              [:list "Like many, got into programming by writing games"
               "...so like many, got started with imperative programming"
@@ -39,7 +40,8 @@
               "Model of computation that operates on a state"
               "The grandfather of imperative systems"
               "Can be used to model a CPU, languages, algorithms... "
-              "Turing completeness in programming languages means the language can simulate a Turing machine"]]})
+              "Turing completeness in programming languages means the language can simulate a Turing machine"
+"Minecraft, Dwarf Fortress, Factorio, Magic the Gathering, ..."]]})
 
 (def lambda-calculus
   {:content [[:heading "Lambda calculus"]
@@ -52,6 +54,14 @@
               "And it can do EVERYTHING"
               "...it also equivalent with Turing machines"
               "So it does everything"]]})
+
+(def lambda-examples
+  {:content [[:heading "Lambda operations"]
+             [:image "lambdacalculus.jpg"]]})
+
+(def lambda-examples-2
+  {:content [[:heading "Lambda calculus at a glance"]
+             [:image "lambdaexamples.jpg"]]})
 
 (def you-dont-really-need-all-this
   {:content [[:heading "It's fine!"]
@@ -67,7 +77,7 @@
               "In FP it's not functions as in programming, but functions as in maths"
               "...uhh"
 	      "Historically popular in Academia, but also has Industry uses"
-	      "Lisp, Haskell, Erlang, OCaml"
+	      "Lisp, Haskell, Erlang, OCaml, Elixir, F#"
 	      "e.g. financial sector likes Haskell or other FP"]]})
 
 (def key-functional-concepts
@@ -98,8 +108,10 @@
 
 (def in-the-end-we-have-pizza
   {:content [[:heading "In the end we have a pizza"]
-             [:subheading "Just with slightly different approaches"]
-	     [:image "pizzagraph.jpg"]})
+             [:subheading "Just with slightly different approaches"]]})
+
+(def in-the-end-we-have-pizza-2
+  {:content [[:image "pizzagraph.jpg"]]})
 
 (def difference-between-FP-and-OOP-2
   {:content [[:heading "More into nitty gritty"]
@@ -135,7 +147,7 @@
   	    [:subheading "Modern multiparadigm languages"]
 	    [:text "Scala, Kotlin, Rust, ..."]
 	    [:subheading "Inspiration in many modern languages"]
-	    [:text "React, lambdas in Java, ..."]}
+	    [:text "React, lambdas in Java, ..."]]})
 
 (def what-do-I-actually-do?
   {:content [[:heading "So what do I actually do?"]
@@ -173,6 +185,10 @@
              [:subheading "This presentation is written in Clojure"]
              [:text "Let's take a look!"]]})
 
+(def what-does-clojure-look-like? 
+  {:content [[:heading "What does Clojure look like?"]
+             [:subheading "Let's see some code!"]]})
+
 (def repl-rocks
   {:content [[:heading "REPL sucks!"]
              [:expanding-list "REPL is the Killer App for development"
@@ -181,13 +197,29 @@
               "Test your code in the real context of your application!"
               "Let's see"]]})
 
+(def how-would-we-write-web-in-clojure? 
+  {:content [[:heading "How would we write web in Clojure?"]
+             [:expanding-list 
+              "Beer goes well with pizza, so we need an API for that"
+              "Let's implement one for this slideset"
+              "Let's implement a component on front-end to get our options"]]})
+
+(def why-clojure?
+  {:content [[:heading "What makes Clojure so great?"]
+             [:expanding-list "REPL makes development smooth!"
+              "Fast feedback loop and easy experimentation"
+              "Writing new experimental code is safe due to purity!"
+              "Writing functional code creates natural flows"
+              "The code is beautiful cause it's so small and modular"
+              "It's a different way to think and can be hard"]]})
+
 (def who-uses-clojure
   {:content [[:heading "Clojure Users in Finland"]
              [:text "There are some.."]
              [:text "Solita, Metosin, Gofore, Siili, Vincit, YLE, ..."]]})
 
 (def use-functional-patterns-elsewhere
-  {:content [[:heading "Be a better programmer!"]
+  {:content [[:heading "Clojure not for you, you can still be a better programmer!"]
              [:subheading "You can utilize FP concepts!"]
              [:expanding-list 
               "Immutability is a good practice if performance"
@@ -196,7 +228,7 @@
               "Keep any effectful code (code that affects things outside the function) contained!"]]})
 
 (def get-into-clojure
-  {:content [[:heading "How to get in?"]
+  {:content [[:heading "I want Clojure, how to get in?"]
              [:list 
               "Clojure for the Brave and True - https://www.braveclojure.com/clojure-for-the-brave-and-true/"
               "4Clojure - https://4clojure.oxal.org/"
@@ -208,7 +240,8 @@
 (def thanks
   {:content [[:heading "Thanks!"]
              [:subheading "Hit me up at"]
-             [:list "LinkedIn "
+             [:list "LinkedIn - https://www.linkedin.com/in/jukkalansineva/"
+              "E-mail - jukka.lansineva@solita.fi"
               "GitHub @jlansineva (get the source for this presentation)"]
              [:subheading "Check Solita Careers at http://www.solita.fi/careers"]
              ]})
