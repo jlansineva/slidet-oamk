@@ -1,11 +1,12 @@
 (ns slidet-oamk.slides)
 
 (def introduction
-  {:content [[:heading "Functional Programmming is Awesome"] 
+  {:content [[:heading "Functional Programming is Awesome"] 
+             [:subheading "You'll see"]
              [:list 
-              "Some background" 
-              "Some practice" 
-              "Some tips"]]})
+              "What Functional Programming (FP) is" 
+              "How we do it at Solita" 
+              "Hopefully some tips how to get started!"]]})
 
 (def who-am-i
   {:content [[:heading "Who am I?"]
@@ -66,8 +67,10 @@
 (def you-dont-really-need-all-this
   {:content [[:heading "It's fine!"]
              [:list "You don't really need to do this stuff in your daily life!"
-              "It's good to know these things are based on concrete models"
-              "The takeaway is that these models are equivalent"]]})
+              "I don't"
+              "It's good to know these practical programming languages have these fundamentals"
+              "The takeaway is that these models are equivalent"
+              "But if you want to know more - https://www.youtube.com/watch?v=3VQ382QG-y4"]]})
 
 (def what-is-FP
   {:content [[:heading "So what is FP?"] 
@@ -154,6 +157,7 @@
              [:expanding-list
               "In Solita, our FP language of choice is Clojure"
               "You might've actually seen it on our career pages!"
+              "Something around 20 projects in Clojure"
               "I'm in a full-stack Clojure project called Harja"
               "Harja is open source, so you can go make PRs!"]]})
 
@@ -211,7 +215,8 @@
               "Writing new experimental code is safe due to purity!"
               "Writing functional code creates natural flows"
               "The code is beautiful cause it's so small and modular"
-              "It's a different way to think and can be hard"]]})
+              "It's a different way to think and can be hard"
+              "Clojure itself is in large parts written in Clojure"]]})
 
 (def who-uses-clojure
   {:content [[:heading "Clojure Users in Finland"]
@@ -232,6 +237,7 @@
              [:list 
               "Clojure for the Brave and True - https://www.braveclojure.com/clojure-for-the-brave-and-true/"
               "4Clojure - https://4clojure.oxal.org/"
+              "Try Clojure - https://tryclojure.org/"
               "Clojure Koans - https://github.com/functional-koans/clojure-koans"
               "Get Leiningen and start hacking - http://www.leiningen.org"
               "Get this app at - https://github.com/jlansineva/slidet-oamk"
