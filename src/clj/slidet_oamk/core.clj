@@ -19,7 +19,7 @@
 (def db 
   {:first-slide :introduction
    :slide-order [:introduction :who-am-i :i-started :so-what-is-programming :turing-machines 
-                 :lambda-calculus :lambda-examples :lambda-examples-2 :you-dont-really-need-all-this  
+                 :lambda-calculus :lambda-examples #_:lambda-examples-2 :you-dont-really-need-all-this  
                  :what-is-FP :difference-between-FP-and-OOP :in-the-end-we-have-pizza 
                  :in-the-end-we-have-pizza-2 :key-functional-concepts 
                  :difference-between-FP-and-OOP-2 :benefits-of-both :multi-paradigms

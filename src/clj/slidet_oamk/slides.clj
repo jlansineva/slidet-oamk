@@ -191,7 +191,7 @@
 
 (def what-does-clojure-look-like? 
   {:content [[:heading "What does Clojure look like?"]
-             [:subheading "Let's see some code!"]]})
+             [:subheading "Let's hop in the REPL and see some code!"]]})
 
 (def repl-rocks
   {:content [[:heading "REPL sucks!"]
