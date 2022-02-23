@@ -87,8 +87,14 @@
   [req]
   (success {:slides db}))
 
+(defn beer-handler
+  [_]
+  (success {:olut-olut 0.6 :pirkka 0.7 :iisalmi-pale-ale 4
+            }))
+
 (def routes
   ["/api" 
+   ["/beer" beer-handler]
    ["/slide" {:post {:handler slide-handler}}]
    ["/slides" {:post {:handler all-slides-handler}}]
    ["/ping" ping]])

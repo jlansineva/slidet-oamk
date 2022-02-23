@@ -58,7 +58,7 @@
 
 (def lambda-examples
   {:content [[:heading "Lambda operations"]
-             [:image "lambdacalculus.jpg"]]})
+             [:image "lambdacalculus.png"]]})
 
 (def lambda-examples-2
   {:content [[:heading "Lambda calculus at a glance"]
@@ -110,11 +110,11 @@
                 "dough becomes a pizza"]]]]})
 
 (def in-the-end-we-have-pizza
-  {:content [[:heading "In the end we have a pizza"]
-             [:subheading "Just with slightly different approaches"]]})
+  {:content [[:heading "In the end we have a pizza"]]})
 
 (def in-the-end-we-have-pizza-2
-  {:content [[:image "pizzagraph.jpg"]]})
+  {:content [[:subheading "Just with slightly different approaches"]
+             [:image "pizzagraph.png"]]})
 
 (def difference-between-FP-and-OOP-2
   {:content [[:heading "More into nitty gritty"]
@@ -198,15 +198,15 @@
              [:expanding-list "REPL is the Killer App for development"
               "Read-Eval-Print-Loop"
               "Allows you to write code at runtime"
-              "Test your code in the real context of your application!"
-              "Let's see"]]})
+              "Test your code in the real context of your application!"]]})
 
 (def how-would-we-write-web-in-clojure? 
   {:content [[:heading "How would we write web in Clojure?"]
              [:expanding-list 
               "Beer goes well with pizza, so we need an API for that"
               "Let's implement one for this slideset"
-              "Let's implement a component on front-end to get our options"]]})
+              "Let's implement a component on front-end to get our options"
+              "For a real app, check Harja"]]})
 
 (def why-clojure?
   {:content [[:heading "What makes Clojure so great?"]
@@ -214,6 +214,7 @@
               "Fast feedback loop and easy experimentation"
               "Writing new experimental code is safe due to purity!"
               "Writing functional code creates natural flows"
+              "Part of that is that you're just working with data structures, moving from A to B with transformations along the way"
               "The code is beautiful cause it's so small and modular"
               "It's a different way to think and can be hard"
               "Clojure itself is in large parts written in Clojure"]]})

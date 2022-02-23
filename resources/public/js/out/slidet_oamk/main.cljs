@@ -210,6 +210,9 @@
   (let [local-state (r/atom {:menu-open? false :show-debug false})] 
     (fn []
       [:div.application
+       #_[:div (when (:beer-prices @slides) (pr-str (:beer-prices @slides)))
+       [:button {:on-click #(ajax/POST "http://localhost:3005/api/beer" {:handler (fn [beers] (swap! slides assoc :beer-prices beers) )}
+                              )} "Get beer"] ]
        [:div.menu 
         [:button {:on-click #(swap! local-state update :menu-open? not)}
          "#"]
